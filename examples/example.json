@@ -1,0 +1,30 @@
+{
+  "args": {
+    "extra_args": [{
+      "specific_datetime": "now() - 30m"
+    }],
+    "color_file_path": "./examples/example.txt"
+  },
+  "rules": [
+    {
+      "criteria": "timestamp[1] before ${specific_datetime}",
+      "colour_by": "line",
+      "colour": "red"
+    },
+    {
+      "criteria": "contains Passed",
+      "colour_by": "word",
+      "colour": "green"
+    },
+    {
+      "criteria": "contains Failed",
+      "colour_by": "word",
+      "colour": "red"
+    },
+    {
+      "criteria": "contains Building",
+      "colour_by": "word",
+      "colour": "yellow"
+    }
+  ]
+}
