@@ -8,8 +8,14 @@ from datetime import datetime
 RED_COLOR = "31"
 GREEN_COLOR = "32"
 YELLOW_COLOR = "33"
+BLUE_COLOR = "34"
 
-COLOR_MAPPING = {"red": RED_COLOR, "green": GREEN_COLOR, "yellow": YELLOW_COLOR}
+COLOR_MAPPING = {
+    "red": RED_COLOR,
+    "green": GREEN_COLOR,
+    "yellow": YELLOW_COLOR,
+    "blue": BLUE_COLOR,
+}
 
 
 def get_matching_rule(line: str, rules: List[Rule], extra_args=None):
