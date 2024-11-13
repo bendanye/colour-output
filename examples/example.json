@@ -1,15 +1,22 @@
 {
   "args": {
-    "extra_args": [{
-      "specific_datetime": "now() - 30m"
-    }],
+    "extra_args": [
+      {
+        "specific_datetime": "now() - 30m"
+      }
+    ],
     "color_file_path": "./examples/example.txt"
   },
   "rules": [
     {
-      "criteria": "timestamp[1] before ${specific_datetime}",
+      "criteria": "timestamp[1] before ${specific_datetime} and contains Failed",
       "colour_by": "line",
       "colour": "red"
+    },
+    {
+      "criteria": "timestamp[1] before ${specific_datetime}",
+      "colour_by": "line",
+      "colour": "blue"
     },
     {
       "criteria": "contains Passed",
