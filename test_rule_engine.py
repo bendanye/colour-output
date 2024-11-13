@@ -14,6 +14,23 @@ def test_get_matching_rule_should_not_get_when_not_match():
     assert get_matching_rule("this is Passed by flying colour", [rule]) is None
 
 
+def test_get_matching_rule_should_get_when_match_with_and_condition():
+    rule = Rule(
+        criteria="contains Passed and contains Hello", colour_by="word", colour="NA"
+    )
+    assert get_matching_rule("Hello, this is Passed by flying colour", [rule]) == rule
+
+
+def test_get_matching_rule_should_not_get_when_does_not_match_with_and_condition():
+    rule = Rule(
+        criteria="contains Passed and contains Hello", colour_by="word", colour="NA"
+    )
+    assert (
+        get_matching_rule("Good morning, this is Passed by flying colour", [rule])
+        is None
+    )
+
+
 def test_get_matching_rule_should_get_when_timestamp_before_specific_datetime():
     specific_datetime = datetime.now()
     rule = Rule(
